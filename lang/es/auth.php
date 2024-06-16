@@ -16,16 +16,12 @@ return [
     'failed' => 'Estas credenciales no coinciden con nuestros registros.',
     'password' => 'La contraseña proporcionada es incorrecta.',
     'throttle' => 'Demasiados intentos de inicio de sesión. Inténtelo de nuevo en :segundos segundos.',
-    'login' => 'Iniciar sesión',
     'rememberme' => 'Recuérdame',
     'forgotpassword' => 'Has olvidado tu contraseña?',
+    'login' => 'Iniciar sesión',
     'register' => [
-        'name' => 'Nombre',
-        'email' => 'Correo electrónico',
-        'password' => 'Contraseña',
-        'password_confirmation' => 'Confirme contraseña',
-        'already_registered'=> '¿Ya se ha registrado?',
         'register'=> 'Registrarse',
+        'already_registered'=> '¿Ya se ha registrado?',
     ],
     'login-message' => "¡Has iniciado sesión!",
 

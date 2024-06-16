@@ -922,21 +922,52 @@
                     </div>
                     @if (Route::has('login'))
                         <nav class="-mx-3 flex flex-1 justify-end">
+                            <!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+                            <div class="mx-6">
+                                <x-dropdown align="left" width="12">
+                                    <x-slot name="trigger">
+                                        <button
+                                            class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-900 bg-white focus:outline-none transition ease-in-out duration-150">
+                                            <div>{{ __('pages.locale') }}</div>
+
+                                            <div class="ms-1">
+                                                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg"
+                                                    viewBox="0 0 20 20">
+                                                    <path fill-rule="evenodd"
+                                                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                                        clip-rule="evenodd" />
+                                                </svg>
+                                            </div>
+                                        </button>
+                                    </x-slot>
+
+                                    <x-slot name="content">
+                                        @foreach (config('localization.locales') as $locale)
+                                            <x-dropdown-link :href="route('localization', $locale)" style="color:black;!important;"
+                                                class="hover:!bg-gray-400">
+                                                {{ __($locale) }}
+                                            </x-dropdown-link>
+                                        @endforeach
+
+                                    </x-slot>
+                                </x-dropdown>
+                            </div>
+                            <!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
                             @auth
                                 <a href="{{ url('/dashboard') }}"
-                                    class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">
-                                    {{__('pages.dashboard')}}
+                                    class="hover:underline rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">
+                                    {{ __('pages.dashboard') }}
                                 </a>
                             @else
                                 <a href="{{ route('login') }}"
                                     class="hover:underline rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">
-                                    {{__('auth.login')}}
+                                    {{ __('auth.login') }}
                                 </a>
 
                                 @if (Route::has('register'))
                                     <a href="{{ route('register') }}"
                                         class="hover:underline rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white">
-                                        {{ __('auth.register.register')}}
+                                        {{ __('auth.register.register') }}
                                     </a>
                                 @endif
                             @endauth
@@ -990,10 +1021,11 @@
                             </div>
 
                             <div class="pt-3 sm:pt-5">
-                                <h2 class="text-xl font-semibold text-black dark:text-white">{{__('welcome.laravelNews')}}</h2>
+                                <h2 class="text-xl font-semibold text-black dark:text-white">
+                                    {{ __('welcome.laravelNews') }}</h2>
 
                                 <p class="mt-4 text-sm/relaxed">
-                                    {{__('welcome.laravelNewsDesc')}}
+                                    {{ __('welcome.laravelNewsDesc') }}
                                 </p>
                             </div>
 
@@ -1007,6 +1039,8 @@
 
                     </div>
                 </main>
+
+                <!-- lang -->
 
                 <footer class="py-16 text-center text-sm text-black dark:text-white/70">
                     Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})
