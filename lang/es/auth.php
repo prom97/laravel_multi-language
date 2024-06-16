@@ -26,6 +26,7 @@ return [
         'password_confirmation' => 'Confirme contraseña',
         'already_registered'=> '¿Ya se ha registrado?',
         'register'=> 'Registrarse',
-
     ],
+    'login-message' => "¡Has iniciado sesión!",
+
 ];

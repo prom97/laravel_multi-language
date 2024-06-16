@@ -1,20 +1,17 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
-use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\Localization;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\LocalizationController;
 
-/**
- * La siguiente ruta agrega (redirige) a la vista en ingles, ya que por defecto la pag principal (http://127.0.0.1:8000) tira error 404
- */
-Route::get('/',function(){
-    return redirect(app()->getLocale()); // toma la variable de idioma configurada en config/app.php
-});
+
+Route::get('/localization/{locale}', LocalizationController::class)->name('localization');
 
 /**
  * Las siguientes lineas utilizan el middleware de localization para mostrar la vista acorde al idioma seleccionado en la url (en/es)
  */
-Route::prefix('{locale}')->middleware(Localization::class)->group(function(){
+Route::middleware(Localization::class)->group(function(){
     
     Route::get('/', function () {
         return view('welcome');
