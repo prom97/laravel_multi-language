@@ -12,8 +12,8 @@ return [
     | outcome such as failure due to an invalid password / reset token.
     |
     */
-    'forgotDesc' => 'Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.',
-    'passwordRestetLink' => 'Restore password',
+    'forgotDesc' => '¿Olvidaste tu contraseña? No hay problema. Simplemente háganos saber su dirección de correo electrónico y le enviaremos un enlace para restablecer su contraseña que le permitirá elegir una nueva.',
+    'passwordRestetLink' => 'Restablecer contraseña',
     'reset' => 'Your password has been reset.',
     'sent' => 'We have emailed your password reset link.',
     'throttled' => 'Please wait before retrying.',
